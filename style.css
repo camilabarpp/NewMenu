@@ -1,0 +1,280 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fg: #17181c;
+  --primary: #255ff4;
+  --primary-hover: #255ff4;
+  --secondary: #8525f4;
+  --trans-dur: 0.3s;
+  --trans-timing: cubic-bezier(0.7, 0, 0.3, 1);
+  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+body {
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  font: 1em/1.5 'DM Sans', sans-serif;
+  height: 100vh;
+  min-height: 24em;
+}
+
+@media screen and (max-width: 38em) {
+  .app,
+  .nav {
+    padding: 0.75em;
+    transition: background-color var(--trans-dur), box-shadow var(--trans-dur);
+    width: 100%;
+  }
+
+  .app {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .app {
+    border-radius: 1.75em;
+    box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    perspective: 20em;
+    position: relative;
+    top: 2em;
+  }
+
+  .nav {
+    background-color: #e3e4e8;
+    border-radius: 1em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
+  }
+
+  .nav__items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .nav__item-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    width: 3em;
+    height: 3em;
+    text-decoration: none;
+  }
+
+  /*Hover na cor primary-hover*/
+  .nav__item-btn:focus,
+  .nav__item-btn:hover,
+  .nav__item-btn[aria-describedby='current'] {
+    color: var(--primary-hover);
+  }
+
+  .nav__item-icon {
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    width: 1.5em;
+    height: 1.5em;
+    transition: transform var(--trans-dur) var(--trans-timing);
+  }
+
+  .nav__item-text {
+    display: block;
+    font-size: 0.6em;
+    line-height: 1.25;
+    opacity: 0;
+    text-align: center;
+    transition: opacity var(--trans-dur) var(--trans-timing);
+  }
+
+  /*Ao clicar em um icon, ele se move*/
+  .nav__item-btn:focus .nav__item-icon,
+  .nav__item-btn:hover .nav__item-icon {
+    transform: translateY(-0.5em);
+  }
+
+  /*Faz o nome dos icons aparecer embaixo*/
+  .nav__item-btn:focus .nav__item-text,
+  .nav__item-btn:hover .nav__item-text {
+    animation: fadeFlyIn calc(var(--trans-dur) * 1.5) var(--trans-timing);
+    opacity: 1;
+  }
+  .nav__item-btn:focus .icon1-1,
+  .nav__item-btn:hover .icon1-1 {
+    animation-name: icon1-1;
+  }
+  .nav__item-btn:focus .icon2-1,
+  .nav__item-btn:hover .icon2-1 {
+    animation-name: icon2-1;
+  }
+  .nav__item-btn:focus .icon2-2,
+  .nav__item-btn:hover .icon2-2 {
+    animation-name: icon2-2;
+  }
+  .nav__item-btn:focus .icon2-3,
+  .nav__item-btn:hover .icon2-3 {
+    animation-name: icon2-3;
+  }
+  .nav__item-btn:focus .icon2-4,
+  .nav__item-btn:hover .icon2-4 {
+    animation-name: icon2-4;
+  }
+  .nav__item-btn:focus .icon3-1,
+  .nav__item-btn:hover .icon3-1 {
+    animation-name: icon3-1;
+  }
+  .nav__item-btn:focus .icon4-1,
+  .nav__item-btn:hover .icon4-1 {
+    animation-name: icon4-1;
+  }
+  .nav__item-btn:focus .icon4-2,
+  .nav__item-btn:hover .icon4-2 {
+    animation-name: icon4-2;
+  }
+  .nav__item-btn:focus .icon4-3,
+  .nav__item-btn:hover .icon4-3 {
+    animation-name: icon4-3;
+  }
+  .nav__item-btn:focus .icon5-1,
+  .nav__item-btn:hover .icon5-1 {
+    animation-name: icon5-1;
+  }
+}
+
+@media screen and (min-width: 38em) {
+  .app,
+  .nav {
+    padding: 0.75em;
+    transition: background-color var(--trans-dur), box-shadow var(--trans-dur);
+    width: 175px;
+  }
+
+  .app {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .app {
+    border-radius: 1.75em;
+    box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    perspective: 20em;
+    position: relative;
+    top: 2em;
+  }
+
+  .nav {
+    background-color: #e3e4e8;
+    border-radius: 1em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
+  }
+
+  .nav__items {
+    list-style: none;
+  }
+
+  .nav__item-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    width: 3em;
+    height: 3em;
+    text-decoration: none;
+  }
+
+  /*Hover na cor primary-hover*/
+  .nav__item-btn:focus,
+  .nav__item-btn:hover,
+  .nav__item-btn[aria-describedby='current'] {
+    color: var(--primary-hover);
+  }
+
+  .nav__item-icon {
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    width: 1.5em;
+    height: 1.5em;
+    transition: transform var(--trans-dur) var(--trans-timing);
+  }
+
+  .nav__item-text {
+    display: block;
+    font-size: 0.6em;
+    line-height: 1.25;
+    margin-left: 10px;
+    text-align: center;
+    transition: opacity var(--trans-dur) var(--trans-timing);
+  }
+
+  /*Ao clicar em um icon, ele se move*/
+  .nav__item-btn:focus .nav__item-icon,
+  .nav__item-btn:hover .nav__item-icon {
+    transform: translateY(-0.5em);
+  }
+
+  /*Faz o nome dos icons aparecer embaixo*/
+  .nav__item-btn:focus .nav__item-text,
+  .nav__item-btn:hover .nav__item-text {
+    animation: fadeFlyIn calc(var(--trans-dur) * 1.5) var(--trans-timing);
+    opacity: 1;
+  }
+  .nav__item-btn:focus .icon1-1,
+  .nav__item-btn:hover .icon1-1 {
+    animation-name: icon1-1;
+  }
+  .nav__item-btn:focus .icon2-1,
+  .nav__item-btn:hover .icon2-1 {
+    animation-name: icon2-1;
+  }
+  .nav__item-btn:focus .icon2-2,
+  .nav__item-btn:hover .icon2-2 {
+    animation-name: icon2-2;
+  }
+  .nav__item-btn:focus .icon2-3,
+  .nav__item-btn:hover .icon2-3 {
+    animation-name: icon2-3;
+  }
+  .nav__item-btn:focus .icon2-4,
+  .nav__item-btn:hover .icon2-4 {
+    animation-name: icon2-4;
+  }
+  .nav__item-btn:focus .icon3-1,
+  .nav__item-btn:hover .icon3-1 {
+    animation-name: icon3-1;
+  }
+  .nav__item-btn:focus .icon4-1,
+  .nav__item-btn:hover .icon4-1 {
+    animation-name: icon4-1;
+  }
+  .nav__item-btn:focus .icon4-2,
+  .nav__item-btn:hover .icon4-2 {
+    animation-name: icon4-2;
+  }
+  .nav__item-btn:focus .icon4-3,
+  .nav__item-btn:hover .icon4-3 {
+    animation-name: icon4-3;
+  }
+  .nav__item-btn:focus .icon5-1,
+  .nav__item-btn:hover .icon5-1 {
+    animation-name: icon5-1;
+  }
+}
